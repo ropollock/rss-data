@@ -53,18 +53,46 @@ public class ESArticleDatastore implements ArticleDatastore {
         this.searchIndicies = searchIndicies;
     }
 
+    /**
+     * setSearchIndicies
+     *
+     * Sets searchIndicies to use for search queries
+     *
+     * @param searchIndicies String[]
+     */
     public void setSearchIndicies(final String[] searchIndicies) {
         this.searchIndicies = searchIndicies;
     }
 
+    /**
+     * setWriteIndex
+     *
+     * Sets write index to use for indexing actions
+     *
+     * @param writeIndex String
+     */
     public void setWriteIndex(final String writeIndex) {
         this.writeIndex = writeIndex;
     }
 
+    /**
+     * getSearchIndicies
+     *
+     * Gets searchIndicies used for search queries
+     *
+     * @return String[]
+     */
     public String[] getSearchIndicies() {
         return this.searchIndicies;
     }
 
+    /**
+     * getWriteIndex
+     *
+     * Gets writeIndex used for indexing actions
+     *
+     * @return String
+     */
     public String getWriteIndex() {
         return this.writeIndex;
     }
@@ -74,6 +102,15 @@ public class ESArticleDatastore implements ArticleDatastore {
                 .setSource(article.serializeJSON(), XContentType.JSON);
     }
 
+    /**
+     * index
+     *
+     * Indexes a single Article using the writeIndex as a target.
+     * Implements ArticleDatastore.index
+     *
+     * @param article Article
+     * @throws NullPointerException
+     */
     public void index(final Article article) throws NullPointerException {
         LOGGER.info(String.format("Indexing article in %s URL: %s", this.writeIndex, article.URL));
         if(this.writeIndex == null) {
@@ -82,6 +119,15 @@ public class ESArticleDatastore implements ArticleDatastore {
         buildArticleIndexRequest(article, this.writeIndex).get();
     }
 
+    /**
+     * indexAll
+     *
+     * Indexes a list of Articles using the writeIndex as a target.
+     * Implements ArticleDatastore.index
+     *
+     * @param articles List of Articles
+     * @throws NullPointerException
+     */
     public void indexAll(final List<Article> articles) throws NullPointerException {
         LOGGER.info(String.format("Indexing %s articles to %s", articles.size(), this.writeIndex));
         if(this.writeIndex == null) {
@@ -100,6 +146,15 @@ public class ESArticleDatastore implements ArticleDatastore {
         }
     }
 
+    /**
+     * delete
+     *
+     * Removes an article from the datastore by id using writeIndex as the target.
+     * Implements ArticleDatastore.delete
+     *
+     * @param id String
+     * @throws NullPointerException
+     */
     public void delete(final String id) throws NullPointerException {
         LOGGER.info(String.format("Deleting article %s", id));
         if(this.writeIndex == null) {
@@ -108,6 +163,24 @@ public class ESArticleDatastore implements ArticleDatastore {
         client.prepareDelete(this.writeIndex, ARTICLE_TYPE, id).get();
     }
 
+    /**
+     * search
+     *
+     * Performs a search against the datastore using searchIndicies as the target and a SearchQuery.
+     * Returns a list of ArticleHits.
+     * Implements ArticleDatastore.search
+     *
+     * If SearchQuery getSearchQuery() is null a match all query is used.
+     * If not null than a MultiMatchQuery is used against the SearchQuery fields.
+     *
+     * SearchQuery.getFilters() will be applied to the post filter of the ES search.
+     * If present SearchQuery.getFrom() will be used as the `from` of the ES search.
+     * If present SearchQuery.getLimit() will be used as the `size` of the ES search.
+     *
+     * @param query SearchQuery
+     * @return List<ArticleHit>
+     * @throws NullPointerException
+     */
     public List<ArticleHit> search(final SearchQuery query) throws NullPointerException {
         LOGGER.debug(String.format("Performing article search: %s", query.toString()));
         if(this.searchIndicies == null) {
@@ -146,6 +219,17 @@ public class ESArticleDatastore implements ArticleDatastore {
         return searchHitsToArticleHits(res.getHits().getHits());
     }
 
+    /**
+     * search
+     *
+     * Performs a search against the datastore using an ES simple query string
+     * and using searchIndicies as the target.
+     * Returns a list of ArticleHits.
+     *
+     * @param queryStr String Simple Query String
+     * @return List<ArticleHit>
+     * @throws NullPointerException
+     */
     public List<ArticleHit> search(final String queryStr) throws NullPointerException {
         LOGGER.debug(String.format("Performing article simple query string search: %s", queryStr));
         if(this.searchIndicies == null) {
