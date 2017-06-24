@@ -45,7 +45,9 @@ public final class ElasticSearchClient {
     /**
      * getTransportAddresses
      *
-     * @return
+     * Gets transport addresses from environment variable as a comma separated List.
+     *
+     * @return List<String>
      * @throws NullPointerException
      */
     private static List<String> getTransportAddresses() throws NullPointerException {
@@ -59,7 +61,10 @@ public final class ElasticSearchClient {
     /**
      * connect
      *
-     * @return
+     * Prepares a PreBuiltTransportClient and joins the ES cluster.
+     * Uses environment variables `cluster.name` an `transportAddresses`
+     *
+     * @return Client
      */
     private static Client connect() {
         logger.info("Joining ES cluster name: " + ElasticSearchClient.getClusterName());
