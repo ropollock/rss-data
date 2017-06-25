@@ -1,5 +1,6 @@
 package com.russpollock.rss.bootstrap;
 
+import com.russpollock.rss.RSSEnvironment;
 import com.russpollock.rss.repository.ElasticSearchClient;
 import com.russpollock.rss.utils.File;
 import org.apache.logging.log4j.LogManager;
@@ -11,13 +12,14 @@ import java.io.IOException;
 
 public class Provision {
     private static final Logger LOGGER = LogManager.getLogger(Provision.class);
+    private static final RSSEnvironment ENV = RSSEnvironment.getInstance();
 
     public static void main(String[] args) {
         final Client client = ElasticSearchClient.getInstance().getClient();
 
         // Get articles index name env
-        final String dropAndCreateProp = "provision.esDropAndCreate";
-        final String articleWriteIndexProp = "provision.esWriteIndex";
+        final String dropAndCreateProp = ENV.getProvisionESDropAndCreateProp();
+        final String articleWriteIndexProp = ENV.getProvisionESWriteIndexProp();
         final String articleWriteIndexName = System.getenv(articleWriteIndexProp);
         final Boolean dropAndCreate = Boolean.parseBoolean(System.getenv(dropAndCreateProp));
 
