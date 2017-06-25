@@ -1,5 +1,7 @@
 package com.russpollock.rss.repository;
 
+import com.russpollock.rss.RSSEnvironment;
+
 import java.security.InvalidParameterException;
 
 public class ArticleDatastoreFactory {
@@ -7,15 +9,14 @@ public class ArticleDatastoreFactory {
         ELASTIC_SEARCH
     }
 
-    private static final String ARTICLE_ES_SEARCH_INDICIES = "articleESSearchIndicies";
-    private static final String ARTICLE_ES_WRITE_INDEX = "articleESWriteIndex";
+    private static final RSSEnvironment ENV = RSSEnvironment.getInstance();
 
     public static ArticleDatastore getArticleDatastore(DATASTORE_TYPE type)
             throws InvalidParameterException {
         switch (type) {
             case ELASTIC_SEARCH:
-                final String searchIndicies = System.getenv(ARTICLE_ES_SEARCH_INDICIES);
-                final String writeIndex = System.getenv(ARTICLE_ES_WRITE_INDEX);
+                final String searchIndicies = ENV.getEnv(ENV.getESArticleSearchIndiciesProp());
+                final String writeIndex = ENV.getEnv(ENV.getESArticleWriteIndexProp());
 
                 if(searchIndicies != null && writeIndex != null) {
                     return new ESArticleDatastore(

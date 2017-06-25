@@ -1,5 +1,6 @@
 package com.russpollock.rss.repository;
 
+import com.russpollock.rss.RSSEnvironment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.client.Client;
@@ -15,8 +16,7 @@ import java.util.List;
 public final class ElasticSearchClient {
     private Client client;
     private static final Logger logger = LogManager.getLogger(ElasticSearchClient.class.getName());
-    private static final String CLUSTER_NAME_ENV = "clusterName";
-    private static final String TRANSPORT_ADDRESSES_ENV = "transportAddresses";
+    private static final RSSEnvironment ENV = RSSEnvironment.getInstance();
 
     public Client getClient() {
         return client;
@@ -35,9 +35,10 @@ public final class ElasticSearchClient {
     }
 
     private static String getClusterName() throws NullPointerException {
-        final String clusterName = System.getenv(CLUSTER_NAME_ENV);
+        final String clusterName = ENV.getEnv(ENV.getESClusterNameProp());
         if(clusterName == null) {
-            throw new NullPointerException("Environment variable null: " + CLUSTER_NAME_ENV);
+            throw new NullPointerException(
+                    String.format("Environment variable null: %s", ENV.getESClusterNameProp()));
         }
         return clusterName;
     }
@@ -51,9 +52,10 @@ public final class ElasticSearchClient {
      * @throws NullPointerException
      */
     private static List<String> getTransportAddresses() throws NullPointerException {
-        final String transportAddresses = System.getenv(TRANSPORT_ADDRESSES_ENV);
+        final String transportAddresses = ENV.getEnv(ENV.getESTransportAddressesProp());
         if(transportAddresses == null ) {
-            throw new NullPointerException("Environment variable null: " + TRANSPORT_ADDRESSES_ENV);
+            throw new NullPointerException(
+                    String.format("Environment variable null: %s", ENV.getESTransportAddressesProp()));
         }
         return Arrays.asList(transportAddresses.split("\\s*,\\s*"));
     }
