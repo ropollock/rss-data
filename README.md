@@ -1,7 +1,7 @@
 # rss-data
 Implements a datastore abstraction that allows you to index, search, and delete from a datastore of RSS articles.
 Currently supports ElasticSearch 5.4.x.
-Articles can be queried from an intuitive builder search query.
+Articles can be queried from an intuitive search query builder.
 
 ## ArticleDatastore
 
