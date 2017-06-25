@@ -83,3 +83,13 @@ String representing the default write index for index operations to ElasticSearc
 String representing the name of the index to create when provisioning ElasticSearch.
 ## rss-data.provision.es.dropAndCreate
 Boolean value used to determine whether or not to drop an existing index when provisioning ElasticSearch.
+
+# Dev setup suggestions
+For an elasticsearch instance its recommended to use a local virtual machine with a docker container for elasticsearch.
+
+Official ES docker
+https://hub.docker.com/_/elasticsearch/
+
+Another slightly easier to configure container
+https://hub.docker.com/r/itzg/elasticsearch/
+
