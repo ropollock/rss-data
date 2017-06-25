@@ -1,8 +1,8 @@
-package com.russpollock.rss.bootstrap;
+package org.russpollock.rss.bootstrap;
 
-import com.russpollock.rss.RSSEnvironment;
-import com.russpollock.rss.repository.ElasticSearchClient;
-import com.russpollock.rss.utils.File;
+import org.russpollock.rss.RSSEnvironment;
+import org.russpollock.rss.repository.ElasticSearchClient;
+import org.russpollock.rss.utils.File;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.client.Client;

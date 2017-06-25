@@ -1,6 +1,6 @@
-package com.russpollock.rss.repository;
+package org.russpollock.rss.repository;
 
-import com.russpollock.rss.RSSEnvironment;
+import org.russpollock.rss.RSSEnvironment;
 
 import java.security.InvalidParameterException;
 

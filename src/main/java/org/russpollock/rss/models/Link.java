@@ -1,4 +1,4 @@
-package com.russpollock.rss.models;
+package org.russpollock.rss.models;
 
 public class Link {
     public String href;

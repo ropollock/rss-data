@@ -1,6 +1,6 @@
-package com.russpollock.rss.repository.queries;
+package org.russpollock.rss.repository.queries;
 
-import com.russpollock.rss.models.Tag;
+import org.russpollock.rss.models.Tag;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.index.query.QueryBuilder;

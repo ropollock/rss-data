@@ -1,8 +1,8 @@
-package com.russpollock.rss.models.builders;
+package org.russpollock.rss.models.builders;
 
-import com.russpollock.rss.models.Article;
-import com.russpollock.rss.models.Link;
-import com.russpollock.rss.models.Tag;
+import org.russpollock.rss.models.Article;
+import org.russpollock.rss.models.Link;
+import org.russpollock.rss.models.Tag;
 
 import java.util.ArrayList;
 import java.util.List;
