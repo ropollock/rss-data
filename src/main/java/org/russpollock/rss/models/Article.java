@@ -1,4 +1,4 @@
-package com.russpollock.rss.models;
+package org.russpollock.rss.models;
 
 import com.google.gson.Gson;
 

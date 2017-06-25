@@ -58,7 +58,7 @@ List<ArticleHit> articleHits = articleDb.search(query.build());
 ```
 
 # Provision
-com.russpollock.rss.bootstrap.Provision main provisions an articles index using mappings defined in resources/repository.
+Provision main provisions an articles index using mappings defined in resources/repository.
 
 The articles index will be dropped and recreated if rss-data.provision.es.dropAndCreate is set to true.
 

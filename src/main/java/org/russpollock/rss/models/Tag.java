@@ -1,4 +1,4 @@
-package com.russpollock.rss.models;
+package org.russpollock.rss.models;
 
 public class Tag {
     public String tag;

@@ -1,9 +1,9 @@
-package com.russpollock.rss.repository;
+package org.russpollock.rss.repository;
 
 import com.google.gson.Gson;
-import com.russpollock.rss.models.Article;
-import com.russpollock.rss.models.ArticleHit;
-import com.russpollock.rss.repository.queries.SearchQuery;
+import org.russpollock.rss.models.Article;
+import org.russpollock.rss.models.ArticleHit;
+import org.russpollock.rss.repository.queries.SearchQuery;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;

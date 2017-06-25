@@ -1,8 +1,8 @@
-package com.russpollock.rss.repository;
+package org.russpollock.rss.repository;
 
-import com.russpollock.rss.models.Article;
-import com.russpollock.rss.models.ArticleHit;
-import com.russpollock.rss.repository.queries.SearchQuery;
+import org.russpollock.rss.models.Article;
+import org.russpollock.rss.models.ArticleHit;
+import org.russpollock.rss.repository.queries.SearchQuery;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.russpollock.rss;
+package org.russpollock.rss;
 
 import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;

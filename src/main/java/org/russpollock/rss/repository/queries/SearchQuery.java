@@ -1,4 +1,4 @@
-package com.russpollock.rss.repository.queries;
+package org.russpollock.rss.repository.queries;
 
 import org.elasticsearch.index.query.RangeQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;

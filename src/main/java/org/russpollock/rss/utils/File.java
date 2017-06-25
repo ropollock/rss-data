@@ -1,4 +1,4 @@
-package com.russpollock.rss.utils;
+package org.russpollock.rss.utils;
 
 import java.io.*;
 
