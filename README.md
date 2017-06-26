@@ -8,13 +8,13 @@ Articles can be queried from an intuitive search query builder.
 <dependency>
   <groupId>org.russpollock.rss</groupId>
   <artifactId>rss-data</artifactId>
-  <version>0.9.2</version>
+  <version>0.9.5</version>
   <type>pom</type>
 </dependency>
 ```
 # Gradle
 ```
-compile 'org.russpollock.rss:rss-data:0.9.2'
+compile 'org.russpollock.rss:rss-data:0.9.5'
 ```
 
 ## ArticleDatastore

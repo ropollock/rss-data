@@ -8,7 +8,7 @@ buildscript {
 }
 apply plugin: 'com.jfrog.bintray'
 
-version = '0.9.4'
+version = '0.9.5'
 group = 'org.russpollock.rss'
 
 allprojects {
@@ -26,7 +26,7 @@ publishing {
             from components.java
             groupId 'org.russpollock.rss'
             artifactId 'rss-data'
-            version '0.9.4'
+            version '0.9.5'
         }
     }
 }
@@ -42,9 +42,9 @@ bintray {
         licenses = ['Apache-2.0']
         vcsUrl = 'https://github.com/ropollock/rss-data.git'
         version {
-            name = '0.9.4'
-            desc = 'rss-data 0.9.4'
-            vcsTag = '0.9.4'
+            name = '0.9.5'
+            desc = 'rss-data 0.9.5'
+            vcsTag = '0.9.5'
         }
     }
 }
