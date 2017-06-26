@@ -19,21 +19,21 @@ public class ArticleDatastoreFactory {
                 final String writeIndex = ENV.getEnv(ENV.getESArticleWriteIndexProp());
 
                 if(searchIndicies != null && writeIndex != null) {
-                    return new ESArticleDatastore(
+                    return new esArticleDatastore(
                             ElasticSearchClient.getInstance().getClient(),
                             writeIndex,
                             searchIndicies.split("\\s*,\\s*"));
                 } else if(writeIndex != null) {
-                    return new ESArticleDatastore(
+                    return new esArticleDatastore(
                             ElasticSearchClient.getInstance().getClient(),
                             writeIndex);
                 } else if(searchIndicies != null) {
-                    return new ESArticleDatastore(
+                    return new esArticleDatastore(
                             ElasticSearchClient.getInstance().getClient(),
                             searchIndicies.split("\\s*,\\s*"));
                 }
                 else {
-                    return new ESArticleDatastore(
+                    return new esArticleDatastore(
                             ElasticSearchClient.getInstance().getClient());
                 }
             default:
