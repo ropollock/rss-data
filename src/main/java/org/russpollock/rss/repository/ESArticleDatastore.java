@@ -22,30 +22,30 @@ import org.elasticsearch.search.SearchHit;
 import java.util.ArrayList;
 import java.util.List;
 
-public class esArticleDatastore implements ArticleDatastore {
+public class EsArticleDatastore implements ArticleDatastore {
     private static final Logger LOGGER = LogManager.getLogger(ElasticSearchClient.class);
     private Client client;
     private String[] searchIndicies;
     private String writeIndex;
     private final String ARTICLE_TYPE = "article";
 
-    public esArticleDatastore(final Client client) {
+    public EsArticleDatastore(final Client client) {
         this.client = client;
     }
 
-    public esArticleDatastore(final Client client,
+    public EsArticleDatastore(final Client client,
                               final String writeIndex) {
         this.client = client;
         this.writeIndex = writeIndex;
     }
 
-    public esArticleDatastore(final Client client,
+    public EsArticleDatastore(final Client client,
                               final String[] searchIndicies) {
         this.client = client;
         this.searchIndicies = searchIndicies;
     }
 
-    public esArticleDatastore(final Client client,
+    public EsArticleDatastore(final Client client,
                               final String writeIndex,
                               final String[] searchIndicies) {
         this.client = client;
