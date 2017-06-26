@@ -18,22 +18,22 @@ public interface ArticleDatastore {
     List<ArticleHit> search(SearchQuery query);
 
     /**
-     * indexAll
+     * saveAll
      *
-     * Adds a list of articles to the article datastore
+     * Saves a list of articles to the article datastore
      *
      * @param documents List of Articles
      */
-    void indexAll(final List<Article> documents);
+    void saveAll(final List<Article> documents);
 
     /**
-     * index
+     * save
      *
-     * Adds an article to the article datastore
+     * Saves an article to the article datastore
      *
      * @param article Article
      */
-    void index(final Article article);
+    void save(final Article article);
 
     /**
      * delete

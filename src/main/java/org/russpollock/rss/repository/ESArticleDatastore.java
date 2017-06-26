@@ -103,15 +103,15 @@ public class ESArticleDatastore implements ArticleDatastore {
     }
 
     /**
-     * index
+     * save
      *
      * Indexes a single Article using the writeIndex as a target.
-     * Implements ArticleDatastore.index
+     * Implements ArticleDatastore.save
      *
      * @param article Article
      * @throws NullPointerException
      */
-    public void index(final Article article) throws NullPointerException {
+    public void save(final Article article) throws NullPointerException {
         LOGGER.info(String.format("Indexing article in %s URL: %s", this.writeIndex, article.URL));
         if(this.writeIndex == null) {
             throw new NullPointerException("writeIndex must be set before indexing.");
@@ -120,15 +120,15 @@ public class ESArticleDatastore implements ArticleDatastore {
     }
 
     /**
-     * indexAll
+     * saveAll
      *
-     * Indexes a list of Articles using the writeIndex as a target.
-     * Implements ArticleDatastore.index
+     * Saves a list of Articles using the writeIndex as a target.
+     * Implements ArticleDatastore.saveAll
      *
      * @param articles List of Articles
      * @throws NullPointerException
      */
-    public void indexAll(final List<Article> articles) throws NullPointerException {
+    public void saveAll(final List<Article> articles) throws NullPointerException {
         LOGGER.info(String.format("Indexing %s articles to %s", articles.size(), this.writeIndex));
         if(this.writeIndex == null) {
             throw new NullPointerException("writeIndex must be set before indexing all.");
