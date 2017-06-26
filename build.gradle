@@ -32,8 +32,8 @@ publishing {
 }
 
 bintray {
-    user = ''
-    key = ''
+    user = System.getProperty("BINTRAY_USER");
+    key = System.getProperty("BINTRAY_KEY");
     publications = ['Publication']
     pkg {
         repo = 'rss-data'
