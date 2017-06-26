@@ -3,6 +3,20 @@ Implements a datastore abstraction that allows you to index, search, and delete 
 Currently supports ElasticSearch 5.4.x.
 Articles can be queried from an intuitive search query builder.
 
+# Maven
+```xml
+<dependency>
+  <groupId>org.russpollock.rss</groupId>
+  <artifactId>rss-data</artifactId>
+  <version>0.9.2</version>
+  <type>pom</type>
+</dependency>
+```
+# Gradle
+```
+compile 'org.russpollock.rss:rss-data:0.9.2'
+```
+
 ## ArticleDatastore
 
 ```java
