@@ -1,6 +1,6 @@
 package org.russpollock.rss.repository;
 
-import org.russpollock.rss.RSSEnvironment;
+import org.russpollock.rss.RssEnvironment;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.elasticsearch.client.Client;
@@ -16,7 +16,7 @@ import java.util.List;
 public final class ElasticSearchClient {
     private Client client;
     private static final Logger logger = LogManager.getLogger(ElasticSearchClient.class.getName());
-    private static final RSSEnvironment ENV = RSSEnvironment.getInstance();
+    private static final RssEnvironment ENV = RssEnvironment.getInstance();
 
     public Client getClient() {
         return client;

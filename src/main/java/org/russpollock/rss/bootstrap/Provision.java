@@ -1,6 +1,6 @@
 package org.russpollock.rss.bootstrap;
 
-import org.russpollock.rss.RSSEnvironment;
+import org.russpollock.rss.RssEnvironment;
 import org.russpollock.rss.repository.ElasticSearchClient;
 import org.russpollock.rss.utils.File;
 import org.apache.logging.log4j.LogManager;
@@ -12,7 +12,7 @@ import java.io.IOException;
 
 public class Provision {
     private static final Logger LOGGER = LogManager.getLogger(Provision.class);
-    private static final RSSEnvironment ENV = RSSEnvironment.getInstance();
+    private static final RssEnvironment ENV = RssEnvironment.getInstance();
 
     public static void main(String[] args) {
         final Client client = ElasticSearchClient.getInstance().getClient();

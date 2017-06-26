@@ -4,8 +4,8 @@ import java.util.HashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class RSSEnvironment {
-    private static final Logger LOGGER = LogManager.getLogger(RSSEnvironment.class);
+public class RssEnvironment {
+    private static final Logger LOGGER = LogManager.getLogger(RssEnvironment.class);
     public static String ENV_PREFIX = "rss-data";
     private HashMap<String, String> vars;
 
@@ -18,7 +18,7 @@ public class RSSEnvironment {
             getProvisionESDropAndCreateProp()
     };
 
-    public RSSEnvironment() {
+    public RssEnvironment() {
         initEnv();
     }
 
@@ -69,10 +69,10 @@ public class RSSEnvironment {
     }
 
     private static class LazyHolder {
-        private static final RSSEnvironment INSTANCE = new RSSEnvironment();
+        private static final RssEnvironment INSTANCE = new RssEnvironment();
     }
 
-    public static RSSEnvironment getInstance() {
+    public static RssEnvironment getInstance() {
         return LazyHolder.INSTANCE;
     }
 }

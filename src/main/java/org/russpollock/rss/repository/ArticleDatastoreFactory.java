@@ -1,6 +1,6 @@
 package org.russpollock.rss.repository;
 
-import org.russpollock.rss.RSSEnvironment;
+import org.russpollock.rss.RssEnvironment;
 
 import java.security.InvalidParameterException;
 
@@ -9,7 +9,7 @@ public class ArticleDatastoreFactory {
         ELASTIC_SEARCH
     }
 
-    private static final RSSEnvironment ENV = RSSEnvironment.getInstance();
+    private static final RssEnvironment ENV = RssEnvironment.getInstance();
 
     public static ArticleDatastore getArticleDatastore(DATASTORE_TYPE type)
             throws InvalidParameterException {
